@@ -1,0 +1,33 @@
+body {
+  background: linear-gradient(90deg ,pink , rgb(252, 55, 88));
+  text-align: center;
+  align-items: center;
+}
+h1 {
+  font-size: 20px;
+}
+.ul {
+  list-style-type: none;
+}
+li {
+  margin: 30px;
+}
+.button {
+  display: inline-block;
+  font-size: 20px;
+  color: red;
+  line-height: 50px;
+  border: none;
+  width: 200px;
+  height: 100px;
+  text-decoration: none;
+  background: linear-gradient(90deg , blue , rgb(72, 72, 255));
+  box-shadow: 0px 15px 20px #000;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+  animation: fadein 1s ease-in-out;
+}
+.button:hover {
+  background: linear-gradient(-90deg , blue , rgb(72, 72, 255));
+  transform: scale(1.05);
+}
