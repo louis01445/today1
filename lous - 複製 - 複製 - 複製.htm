@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: linear-gradient(90deg, red rgb(255, 102, 102));
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      font-family: "標楷體";
+    }
+    h1 {
+      text-shadow: #00000066 3px 3px 3px;
+      color: rgb(0, 180, 180);
+      margin-top: 20px;
+    }
+    p {
+        font-family: "標楷體";
+        color: rgb(0, 0, 0);
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .a {
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-color: red;
+        text-decoration-thickness: 5px;
+    }
+    .b {
+        text-decoration-line: line-through;
+        text-decoration-style: wavy;
+        text-decoration-color: rgb(255, 0, 0 ,0.5);
+        text-decoration-thickness: 5px;
+    }
+    .c {
+        text-decoration-line: line-through;
+        text-decoration-style: double;
+        text-decoration-color: rgb(255, 0, 0 ,0.5);
+        text-decoration-thickness: 5px;
+    }
+    li {
+        list-style-type: none;
+        font-size: 20px;
+    }
+    .main-box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgb(0, 0, 255);
+  border-radius: 10px;
+  width: 1250px;
+  max-width: 1250px;
+  margin: 20px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  gap: 30px; /* 中間間距 */
+}
+.left, .right {
+  width: 700px;
+  height: 650px;
+  background: rgba(255, 211, 130, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+    .image {
+      transition: all 0.5s ease;
+      animation: fadeln 1s ease-in-out;
+      box-shadow: 10px 10px 10px #00000066;
+      width: 350px;
+      height: auto;
+      border-radius: 10px;
+    }
+    .image:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>標體：影響我最深刻的一句話</h1>
+
+  <div class="main-box">
+    <!-- 左側：人物與圖片 -->
+    <div class="left">
+      <h2>何紹綸</h2>
+      <img src="file_000000005180622f8718f2ddead92daa_conversation_id67fe2153-6f7c-8009-bb97-bdfe410a3d3emessage_id425656a8-c51c-453e-80f9-b6fed1cb9d4a.webp" class="image" alt="照片">
+    </div>
+
+    <!-- 右側：文字（雙欄） -->
+    <div class="right">
+        <div class="section" style="background: #ffb366; padding: 10px; margin-bottom: 10px;">
+          <strong class="a">那些能帶給我快樂的事情</strong>
+          <p>看書時陽光灑落紙面，內心就像被照亮般平靜又滿足。</p>
+        </div>
+      
+        <div class="section" style="background: #ffb3e6; padding: 10px; margin-bottom: 10px;">
+          <strong class="b">我最喜歡的清新文字</strong>
+          <ol>
+            <li>保持善良，不是因為世界美好，而是你選擇做對的事。</li>
+            <li>每個不如意的現在，都是更好未來的鋪墊。</li>
+            <li>你可以慢一點，但永遠別停下來。</li>
+          </ol>
+        </div>
+      
+        <div class="section" style="background: #ffc04d; padding: 10px;">
+          <strong class="c">我最喜歡的一首歌—</strong>
+          <p>
+            太多的 太重的 太残忍的话<br>
+            没纠缠 是你的 理由太假<br>
+            我觉得 你大可不必说的天花乱坠
+            <br>
+            
+            是天使 是魔鬼 都没有绝对</p>
+            <p>没想的 没说的 都请收起吧</p>
+        <br>
+        </div>
+      </div>
+  </div>
+</body>
+</html>
