@@ -3,9 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>成果展示</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
+    body {
+            background: linear-gradient(90deg ,rgb(0, 204, 255) ,rgb(255, 255, 173));
+            overflow: none;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: '標楷體';
+        }
+    .box ,.box2 {
+            max-width: 550px;
+            height: auto;
+            background-color: rgb(160, 60, 255);
+            margin: auto;
+            border: 2px solid rgb(255, 155, 170);
+            border-radius: 5px;
+        }
+    .box2 {
+            background-color: rgb(255, 110, 240);
+        }
+        .a, .b, .c {
+            background-color: rgba(255,255,255,0.8);
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #333;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: none;
+            transition: all 0.3s ease;
+        }
+        .a:hover, .b:hover, .c:hover {
+        font-size: 18px;
+        color: rgb(0, 204, 255);
+    }
+    .d {
+        text-shadow: 0px 4px 10px;
+        transition: all 0.5s ease;
+        font-size: 14px;
+        color: rgba(0, 0, 0,);
+        background: linear-gradient(-90deg ,rgb(0, 204, 255) ,rgb(255, 255, 173));
+        border-radius: 10px;
+        padding: 14px;
+        margin: 10px;
+    }
+    .d:hover {
+        transform: scale(1.0);
+        color: rgb(160, 60, 255);
+        font-size: 24px;
+    }
+        .topen {
+            overflow: hidden;
+            background-color: rgb(0, 119, 255);
+            border-radius: 2px;
+        }
+        .topen a {
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'ZCOOL KuaiLe';
+            color: rgb(255, 255, 173);
+            padding: 25px 30px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .topen a:hover {
+            font-size: 24px;
+            background-color: rgb(255, 255, 173);
+            color: rgb(0, 204, 255);
+            font-family: 'ZCOOL KuaiLe';
+            text-decoration-line: underline;
+            text-decoration-color: rgb(0, 204, 255);
+        }
+        .hamburger {
+            display: none;
+            width: 30px;
+            height: 30px;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            background-color: rgb(160, 60, 255);
+            border: 2px solid rgb(255, 155, 170);
+            border-radius: 2px;
+            height: 3px;
+            width: auto;
+        }
+        @media screen and (max-width:750px) {
+            .topen {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .topen.k {
+                display: flex;
+                flex-direction: column;
+            }
+            .topen a {
+                border-top: 2px solid rgb(255, 155, 170);
+            }
+            .a, .b, .c {
+                font-size: 14px;
+            }
+            .a:hover, .b:hover, .c:hover {
+                font-size: 24px;
+            }
+            .d {
+                font-size: 16px;
+            }
+            .d:hover {
+                font-size: 26px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>成果展示</h1>
+    <script>
+        let x = prompt("請幫我的網站評評分(1~10)", "");
+        if (x !== null && !isNaN(x) && x.trim() !== "" && x >= 0 && x <= 10) {
+            document.write("評分：" + x + "分");
+        } else {
+            alert("請輸入正確的分數（0~10）");
+        }
+    </script>
+    <div class="hamburger" onclick="togglemenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="topen">
+        <a href="1111.html">報告封面</a>
+        <a href="2222.html">成果展示</a>
+        <a href="3333.html">學習過程</a>
+        <a href="4444.html">心得與反思</a>
+    </div>
+    <br>
+    <div class="box">
+        <h1 onclick="louis()" class="d"><li>介紹HTML架構</li></h1>
+        <h1 onclick="louis1()" class="d"><li>介紹CSS架構</li></h1>
+        <h1 onclick="louis2()" class="d"><li>介紹JavaScrip架構</li></h1>
+    </div>
+    <br>
+    <div class="box2">
+        <div class="a">HTML架構： 聲明 HTML5 文件類型：HTML 根元素，語言設為英文：文件的頭部資訊，包含字元編碼、標題、字型連結、CSS 樣式：實際網頁內容的主體</div>
+    </div>
+    <br>
+    <div class="box2">
+    <div class="b">
+    介紹CSS架構：全域樣式（body）：背景漸層、置中、字型設定區塊樣式（.box, .box2）：固定寬度、背景色、邊框、圓角資訊卡片（.a, .b, .c）：背景透明、陰影、hover 效果、預設隱藏導覽列（.topen）：背景、字型、hover 效果RWD 響應式設計：手機時隱藏導覽列，使用 .hamburger 切換顯示圖片效果（.imger）：陰影、懸停時移動動畫
+    </div>
+    </div>
+    <br>
+    <div class="box2">
+    <div class="c">
+    顯示使用者輸入的評分（prompt）點擊標題切換資訊卡片顯示（.a、.b、.c）手機版菜單切換（.hamburger 展開 .topen）
+    </div>
+    </div>
+    <script>
+        function louis(){
+            let adiv=document.querySelector('.a')
+            let bdiv=document.querySelector('.b')
+            let cdiv=document.querySelector('.c')
+            adiv.style.display="block"
+            bdiv.style.display="none"
+            cdiv.style.display="none"
+        }
+         function louis1(){
+            let adiv=document.querySelector('.a')
+            let bdiv=document.querySelector('.b')
+            let cdiv=document.querySelector('.c')
+            adiv.style.display="none"
+            bdiv.style.display="block"
+            cdiv.style.display="none"
+        }
+         function louis2(){
+            let adiv=document.querySelector('.a')
+            let bdiv=document.querySelector('.b')
+            let cdiv=document.querySelector('.c')
+            adiv.style.display="none"
+            bdiv.style.display="none"
+            cdiv.style.display="block"
+        }
+        function togglemenu(){
+            const topen=document.querySelector('.topen');
+            topen.classList.toggle('k');
+        }
+    </script>
 </body>
 </html>
