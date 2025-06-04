@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的購物車</title>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .cart-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .cart-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .cart-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .item-image {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .item-details {
+            flex: 1;
+        }
+        .item-price {
+            color: #e53935;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .item-actions {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            border: 1px solid #ddd;
+            background: none;
+            cursor: pointer;
+        }
+        .quantity {
+            margin: 0 10px;
+            width: 30px;
+            text-align: center;
+        }
+        .remove-btn {
+            margin-left: auto;
+            color: #999;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            text-decoration-line: underline;
+            text-decoration-color: #999;
+        }
+        .total-amount {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e53935;
+        }
+        .checkout-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #e53935;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .topen {
+            overflow: hidden;
+            background: hotpink;
+            margin: auto;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .topen a {
+            font-size: 12px;
+            font-weight: 600;
+            color: red;
+            text-decoration: none;
+            transition: all 0.5s ease;        
+        }
+        .topen a:hover {
+            background: rgb(116, 116, 255);
+            color: #999;
+            text-decoration-line: underline;
+            text-decoration-color: #999;
+            transform: translateY(5px);
+        } 
+    
+    </style>
+</head>
+<body>
+    <div class="topen">
+        <a href="array1.html">作業1</a>
+        <a href="array2.html">作業2</a>
+        <a href="array3.html">作業3</a>
+        <a href="array4.html">作業4</a>
+        <a href="array5.html">作業5</a>
+        <a href="array6.html">作業6</a>
+        <a href="array7.html">作業7</a>
+    </div>
+    <div class="cart-container">
+        <div class="cart-header">
+            <div class="cart-title">購物車總額</div>
+            <button class="clear-cart">清空購物車</button>
+        </div>
+        
+        <div class="cart-items">
+            <div class="cart-item" data-id="1">
+                <img class="item-image" src="https://louis01445.github.io/today1/d0d8bc48-3f07-4614-8e17-5f96978b4e8d_m.jpg">
+                <div class="item-details">
+                    <div class="item-name">黑人</div>
+                    <div class="item-price">NT$ 6550</div>
+                    <div class="item-actions">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                        <button class="remove-btn">刪除</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cart-item" data-id="2">
+                <img class="item-image" src="https://louis01445.github.io/today1/maxresdefault.jpg">
+                <div class="item-details">
+                    <div class="item-name">ishowspeed</div>
+                    <div class="item-price">NT$ 7000</div>
+                    <div class="item-actions">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                        <button class="remove-btn">刪除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cart-footer">
+            <div>總計: <span class="total-amount">NT$ 13,550</span></div>
+            <button class="checkout-btn">前往結帳</button>
+        </div>
+    </div>
+
+    <script>
+        // 商品資料
+        const products = {
+            1: { price: 6550 },
+            2: { price: 7000 }
+        };
+
+        // 計算總金額
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const id = item.dataset.id;
+                const quantity = parseInt(item.querySelector('.quantity').textContent);
+                total += products[id].price * quantity;
+            });
+            document.querySelector('.total-amount').textContent = `NT$ ${total.toLocaleString()}`;
+        }
+
+        // 數量加減
+        document.querySelectorAll('.quantity-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.closest('.cart-item');
+                const quantityEl = item.querySelector('.quantity');
+                let quantity = parseInt(quantityEl.textContent);
+                
+                if(this.classList.contains('plus')) {
+                    quantity++;
+                } else if(quantity > 1) {
+                    quantity--;
+                }
+                
+                quantityEl.textContent = quantity;
+                updateTotal();
+            });
+        });
+
+        // 刪除商品
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(confirm('確定要刪除此商品嗎？')) {
+                    this.closest('.cart-item').remove();
+                    updateTotal();
+                }
+            });
+        });
+
+        // 清空購物車
+        document.querySelector('.clear-cart').addEventListener('click', function() {
+            if(confirm('確定要清空購物車嗎？')) {
+                document.querySelectorAll('.cart-item').forEach(item => item.remove());
+                updateTotal();
+            }
+        });
+
+        // 結帳按鈕
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            window.open('https://shopee.tw/', '_blank');
+        });
+    </script>
+</body>
+</html>

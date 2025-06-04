@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bt {
+            background: linear-gradient(90deg hotpink rgb(255, 50, 150));
+            transition: all 0.5s ease;
+            text-align: center;
+            font-size: 12px;
+            color: rgb(164, 164, 255);
+            width: 120px;
+            height: 30px;
+            line-height: 20px;
+            margin: auto;
+        }
+        .bt:hover {
+            transform: translateY(12px);
+            background: linear-gradient(-90deg hotpink rgb(255, 50, 150));
+        }
+        
+        .topen {
+            overflow: hidden;
+            background: hotpink;
+            margin: auto;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .topen a {
+            font-size: 12px;
+            font-weight: 600;
+            color: red;
+            text-decoration: none;
+            transition: all 0.5s ease;        
+        }
+        .topen a:hover {
+            background: rgb(116, 116, 255);
+            color: #999;
+            text-decoration-line: underline;
+            text-decoration-color: #999;
+            transform: translateY(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="topen">
+        <a href="array1.html">作業1</a>
+        <a href="array2.html">作業2</a>
+        <a href="array3.html">作業3</a>
+        <a href="array4.html">作業4</a>
+        <a href="array5.html">作業5</a>
+        <a href="array6.html">作業6</a>
+        <a href="array7.html">作業7</a>
+    </div>
+    <h3>事件處理</h3>
+    <span class="bt"
+        onmouseover="over(this);" onmouseout="out(this);"
+        onmousedown="down(this);" onmouseup="up(this);"
+        >點我</span>
+        <script>
+            function down(elem){
+                elem.style.fontweight="bold";
+            }
+            function over(elem){
+                elem.style.backgroundcolor="#ddaaaa";
+            }
+            function out(elem){
+                elem.style.backgroundcolor="lightblue";
+            }
+            function up(elem){
+                elem.style.fontweight="normal";
+            }
+        </script>
+</body>
+</html>

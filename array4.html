@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .topen {
+            overflow: hidden;
+            background: hotpink;
+            margin: auto;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .topen a {
+            font-size: 12px;
+            font-weight: 600;
+            color: red;
+            text-decoration: none;
+            transition: all 0.5s ease;        
+        }
+        .topen a:hover {
+            background: rgb(116, 116, 255);
+            color: #999;
+            text-decoration-line: underline;
+            text-decoration-color: #999;
+            transform: translateY(5px);
+        } 
+    </style>
+</head>
+<body>
+    <div class="topen">
+        <a href="array1.html">作業1</a>
+        <a href="array2.html">作業2</a>
+        <a href="array3.html">作業3</a>
+        <a href="array4.html">作業4</a>
+        <a href="array5.html">作業5</a>
+        <a href="array6.html">作業6</a>
+        <a href="array7.html">作業7</a>
+    </div>
+    <p>蘋果</p>
+    <p class="pp">喜歡蘋果</p>
+    <p id="pp">喜歡西瓜</p>
+    <script>
+        const ie=document.querySelector("p");
+        console.log(ie.innerHTML);
+        const classie=document.querySelector(".pp");
+        const idie=document.querySelector("#pp");
+        console.log(idie.innerHTML);
+    </script>
+</body>
+</html>
