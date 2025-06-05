@@ -50,6 +50,11 @@
             height: 3px;
             width: auto;
         }
+        .box {
+            background: purple;
+            margin: auto;
+
+        }
         @media screen and (max-width:750px) {
             .topen {
                 display: none;
@@ -80,6 +85,12 @@
         <a href="4444.html">心得與反思</a>
     </div>
     <script>
+        function louis2(){
+            const tiemstamp=new Date().getTime();
+            document.getElementById('ramdow').src=
+            https://api.paugram.com/wallpaper/?source=sm=${timestamp};
+            
+        }
         function louis(){
             const topen=document.querySelector('.topen');
             topen.classList.toggle('k')
