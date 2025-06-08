@@ -24,7 +24,6 @@
             overflow: hidden;
             background-color: rgb(0, 119, 255 ,0.5);
             border-radius: 2px;
-            text-align: center;
         }
         .topen a {
             font-size: 20px;
@@ -181,6 +180,26 @@
             margin: auto;
             border-radius: 16px;
         }
+        .bt {
+           background: linear-gradient(90deg,#7f00ff,#39ff14); 
+           margin:auto; 
+           font-size: 16px; 
+           font-style: italic; 
+           font-weight: 500; 
+           color: lightpink; 
+           width: 95px; 
+           height: auto; 
+           line-height: 20px;  
+           transition: all 0.5s ease; 
+           border-radius: 9px; 
+           border: 3px solid #000;
+         }
+         .bt:hover {  
+             transform: scale(1.1);  
+             background: linear-gradient(90deg,#7f00ffBF,#39ff14BF);   
+             font-size: 20 px;    
+             font-style: italic;    
+         }
         @media screen and (max-width:700px) {
             body {
                 background-color: rgb(0, 119, 255);
@@ -236,6 +255,9 @@
     <br>
     <div class="box0">
         <div class="box1">
+        <button class="bt" onclick="louis5()">隱藏</button>
+        </div>
+        <div class="box1">
         <h1 onclick="louis()" class="e">學習過程</h1>
         </div>
         <div class="box2">
@@ -261,6 +283,7 @@
         <source src="https://louis01445.github.io/today1/社會福音戰士.mp4">
         </video>
         </div>
+        
         <a class="d" href="https://youtube.com/shorts/81x6bTXt_E8?si=wJj6CDjRNyPden7O" target="_blank">影片連結</a>
         </div>
         <div class="box1">
@@ -325,6 +348,19 @@
             video.style.display="block"
             video.play()
         }
+        function louis5(){
+            let adiv=document.querySelector(".a")
+            let bdiv=document.querySelector(".b")
+            let cdiv=document.querySelector(".c")
+            let ddiv=document.querySelector(".d")
+            let video=document.querySelector(".videoBox")
+            adiv.style.display="none"
+            bdiv.style.display="none"
+            cdiv.style.display="none"
+            ddiv.style.display="none"
+            video.style.display="none"
+            video.pause()
+        }
         function louis4(){
             const topen=document.querySelector('.topen');
             topen.classList.toggle('k');
@@ -332,4 +368,3 @@
     </script>
 </body>
 </html>
-
