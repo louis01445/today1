@@ -39,11 +39,12 @@
             color: #333;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             display: none;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
         }
         .a:hover, .b:hover, .c:hover {
         font-size: 18px;
         color: rgb(0, 204, 255);
+        font-family: "標楷體";
     }
     .d {
         text-shadow: 0px 4px 10px;
@@ -59,6 +60,7 @@
         transform: scale(1.0);
         color: rgb(160, 60, 255);
         font-size: 24px;
+        font-family: "標楷體";
         text-decoration-line: underline;
         text-decoration-color: rgb(160, 60, 255);
         text-decoration-thickness: 2px;
@@ -67,7 +69,6 @@
             overflow: hidden;
             background-color: rgb(0, 119, 255);
             border-radius: 2px;
-            text-align: center;
         }
         .topen a {
             font-size: 20px;
@@ -76,7 +77,7 @@
             color: rgb(255, 255, 173);
             padding: 25px 30px;
             text-decoration: none;
-            transition: all 0.5s ease;
+            transition: all 0.2s ease;
         }
         .topen a:hover {
             font-size: 24px;
@@ -102,6 +103,26 @@
             height: 3px;
             width: auto;
         }
+        .bt {
+           background: linear-gradient(90deg,#7f00ff,#39ff14); 
+           margin:auto; 
+           font-size: 16px; 
+           font-style: italic; 
+           font-weight: 500; 
+           color: lightpink; 
+           width: 95px; 
+           height: auto; 
+           line-height: 20px;  
+           transition: all 0.5s ease; 
+           border-radius: 9px; 
+           border: 3px solid #000;
+         }
+         .bt:hover {  
+             transform: scale(1.1);  
+             background: linear-gradient(90deg,#7f00ffBF,#39ff14BF);   
+             font-size: 20 px;    
+             font-style: italic;    
+         }
         @media screen and (max-width:750px) {
             .topen {
                 display: none;
@@ -153,6 +174,7 @@
         <a href="4444.html">心得與反思</a>
     </div>
     <br>
+    <button class="bt" onclick="louis3()">隱藏</button>
     <div class="box">
         <h1 onclick="louis()" class="d"><li>介紹HTML架構</li></h1>
         <h1 onclick="louis1()" class="d"><li>介紹CSS架構</li></h1>
@@ -198,6 +220,14 @@
             adiv.style.display="none"
             bdiv.style.display="none"
             cdiv.style.display="block"
+        }
+        function louis3(){
+            let adiv=document.querySelector('.a')
+            let bdiv=document.querySelector('.b')
+            let cdiv=document.querySelector('.c')
+            adiv.style.display="none"
+            bdiv.style.display="none"
+            cdiv.style.display="none"
         }
         function togglemenu(){
             const topen=document.querySelector('.topen');
