@@ -37,7 +37,6 @@
             overflow: hidden;
             background-color: rgb(0, 119, 255);
             border-radius: 2px;
-            text-align: center;
         }
         .topen a {
             font-size: 20px;
@@ -46,13 +45,13 @@
             color: rgb(255, 255, 173);
             padding: 25px 30px;
             text-decoration: none;
-            transition: all 0.5s ease;
+            transition: all 0.2s ease;
         }
         .topen a:hover {
             font-size: 24px;
             background-color: rgb(255, 255, 173);
             color: rgb(0, 204, 255);
-            font-family: 'ZCOOL KuaiLe';
+            font-family: '標楷體';
             text-decoration-line: underline;
             text-decoration-color: rgb(0, 204, 255);
         }
@@ -84,6 +83,26 @@
             height: 3px;
             width: auto;
         }
+        .bt {
+           background: linear-gradient(90deg,#7f00ff,#39ff14); 
+           margin:auto; 
+           font-size: 16px; 
+           font-style: italic; 
+           font-weight: 500; 
+           color: lightpink; 
+           width: 95px; 
+           height: auto; 
+           line-height: 20px;  
+           transition: all 0.5s ease; 
+           border-radius: 9px; 
+           border: 3px solid #000;  
+         }
+         .bt:hover {  
+             transform: scale(1.1);  
+             background: linear-gradient(90deg,#7f00ffBF,#39ff14BF);   
+             font-size: 20 px;    
+             font-style: italic;    
+         }
         @media screen and (max-width:750px) {
             .topen {
                 display: none;
@@ -116,17 +135,33 @@
     </div>
     <br>
     <div class="box">
+        <button class="bt" onclick="louis1()">隱藏</button>
         <h1 onclick="louis()">我的介紹</h1>
-        <div class="a">基礎網頁設計_五專資工一甲 何紹綸 5B3G0049 劉毓芬 2025/5/29</div>
-        <h1 onclick="louis1()">我的介紹2</h1>
-        <img src="https://louis01445.github.io/today1/%E7%B4%A2%E5%B0%BC%E5%85%8B%E6%89%93%E7%A5%96%E5%85%8B%E6%9F%8F.jpg" class="imger" alt="索尼克打祖克柏">
+        <div class="a">網頁設計實習_五專資工一甲 何紹綸 5B3G0049 劉毓芬 2025/5/29</div>
+        <br>
+        <img src="" class="imger" id="image" alt="隨機圖片">
+        <br>
+        <br>
+        <button class="bt" onclick="loadRandomImage()">隨機按鈕</button>
+        <br>
+        <br>
     </div>
     <script>
+        function loadRandomImage(){
+           fetch("https://api.waifu.pics/sfw/waifu")
+           .then(res=>res.json())
+           .then(data=>{
+               document.getElementById("image").src=data.url;
+           });
+       }
+      loadRandomImage();
         function louis(){
             let adiv=document.querySelector('.a')
-            let bdiv=document.querySelector('.b')
             adiv.style.display="block"
-            bdiv.style.display="none"
+        }
+        function louis1(){
+            let adiv=document.querySelector('.a')
+            adiv.style.display="none"
         }
         function louis2(){
             const topen=document.querySelector('.topen');
@@ -135,4 +170,3 @@
     </script>
 </body>
 </html>
-
