@@ -19,6 +19,21 @@
             color: #7f00ff;
             font-size: 24px;
             text-align: center;
+            display: none;
+            transition: all 0.5s ease;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        .a:hover {
+            transform: translatey(-15px);
+            text-decoration-line: underline;
+            text-decoration-color: #7f00ff;
+            text-decoration-thickness: 3px;
+        }
+        .b:hover {
+            transform: translatey(15px);
+            text-decoration-line: underline;
+            text-decoration-color: #7f00ff;
+            text-decoration-thickness: 3px; 
         }
         .topen {
             overflow: hidden;
@@ -94,7 +109,7 @@
            line-height: 20px;  
            transition: all 0.5s ease; 
            border-radius: 9px; 
-           border: 3px solid #000;  
+           border: 3px solid #000;
          }
          .bt:hover {  
              transform: scale(1.1);  
@@ -134,33 +149,39 @@
         <a href="3333.html">學習過程</a>     
         <a href="4444.html">心得與反思</a>     
     </div>
-    <br />
+    <button class="bt" onclick="louis4()">隱藏</button>
+    <br>
     <div class="box">  
-       <h1>心得：</h1>
+       <h1 onclick="louis1()">心得：</h1>
        <div class="a">
            第一次打網站覺得既新鮮又有挑戰,從不懂HTML到能做出簡單頁 面,過程雖然常出錯,但也讓我學會查資料和解決問題。當看到網站 成功顯示時,非常有成就感,未來想繼續學習更多前端技術。
        </div>
-       <h1>反思：</h1>
+       <h1 onclick="louis3()">反思：</h1>
        <div class="b">
-           
+           在這次製作網站的過程中，我從一開始對 HTML 和 CSS 幾乎不了解，到後來能夠獨立完成頁面設計與功能實作，這讓我深刻體會到學習的成就感。雖然過程中遇到不少困難，但透過詢問老師、請教 AI 和自己不斷嘗試，我學會了解決問題的能力，也更加熟悉網頁設計的邏輯與技巧。
        </div>
+       <br>
     </div>
     <br>
-    <div class="box2">
-        <br>
-       <img src="" id="image" class="image" alt="隨機圖片">   
-       <br>   
-       <button class="bt" onclick="loadRandomImage()">隨機圖片</button>  
-    </div>  
     <script>
-       function loadRandomImage(){
-           fetch("https://api.waifu.pics/sfw/waifu")
-           .then(res=>res.json())
-           .then(data=>{
-               document.getElementById("image").src=data.url;
-           });
-       }
-      loadRandomImage();      
+      function louis1(){
+        let adiv=document.querySelector(".a");
+        let bdiv=document.querySelector(".b");
+        adiv.style.display="block"
+        bdiv.style.display="none"
+      }
+      function louis3(){
+        let adiv=document.querySelector(".a");
+        let bdiv=document.querySelector(".b");
+        adiv.style.display="none"
+        bdiv.style.display="block"
+      }
+      function louis4(){
+        let adiv=document.querySelector(".a");
+        let bdiv=document.querySelector(".b");
+        adiv.style.display="none"
+        bdiv.style.display="none"
+      }
       function toggleMenu(){       
           const topen = document.querySelector('.topen');       
           topen.classList.toggle('k');         
