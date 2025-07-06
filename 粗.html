@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Huninn&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=ZCOOL+KuaiLe&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+  <title>漸變按鈕效果</title>
+  <style>
+    body {
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .topen {
+      overflow: hidden;
+      text-align: center;
+      border-radius: 25px;
+    }
+    
+    .topen a {
+      font-size: 18px;
+      font-weight: 500;
+      font-family: 'ZCOOL QingKe HuangYou';
+      color: #ffffff;
+      background: linear-gradient(45deg, #ff6b6b 0%, #feca57 100%);
+      transition: all 0.5s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 23px;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
+    }
+    
+    .topen a::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.4s ease;
+    }
+    
+    .topen a:hover::after,
+    .topen a:focus::after {
+      width: 100%;
+    }
+    
+    .topen a:hover,
+    .topen a:focus {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      font-size: 20px;
+      background: linear-gradient(45deg, #48dbfb 0%, #0abde3 100%);
+      color: #ffffff;
+    }
+    
+    .box {
+      background: #0abde3;
+      border: 5px solid black;
+      border-radius: 16px;
+      max-width: 1200px;
+      width: 100%;
+      height: auto;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    
+    .box h1 {
+      margin: 0;
+      font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+      color: white;
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 30px;
+      width: 35px;
+      margin: 15px;
+      position: fixed;
+      top: 15px;
+      left: 30px;
+    }
+    
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(45deg, #ff6b6b 0%, #feca57 100%);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 2px;
+      transition: all 0.5s ease;
+    }
+    
+    .hamburger:hover span {
+      background: linear-gradient(45deg, #48dbfb 0%, #0abde3 100%);
+      transform: scale(1.20);
+    }
+    
+    .bt {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #0abde3 100%);
+      position: relative;
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 10px 20px;
+      color: white;
+      font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+      font-size: 16px;
+      transition: all 0.5s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+      text-decoration: none;
+      outline: none;
+    }
+    
+    .bt::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      right: 0;
+      width: 0;
+      height: 3px;
+      background: white;
+      transition: width 0.5s ease;
+    }
+    
+    .bt:hover::after,
+    .bt:focus::after {
+      width: 100%;
+    }
+    
+    .bt:hover,
+    .bt:focus {
+      transform: scale(1.10);
+      background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      text-decoration-line: underline;
+      text-decoration-color: rgba(255, 255, 255, 0.8);
+      text-decoration-thickness: 2px;
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .image {
+      border: 3px solid rgba(255, 255, 255, 0.5);
+      border-radius: 15px;
+      transition: all 0.5s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      max-width: 100%;
+      width: 400px;
+      height: auto;
+      cursor: pointer;
+      margin-top: 20px;
+      display: none; /* 初始隐藏 */
+    }
+    
+    .image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .image-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    @media screen and (max-width: 700px) {
+      .topen {
+        display: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      .topen.bud2 {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 10px;
+        border-radius: 10px;
+      }
+      
+      .box {
+        margin-top: 60px;
+      }
+      
+      .image {
+        width: 300px;
+      }
+    }
+    
+    @media screen and (max-width: 400px) {
+      .image {
+        width: 250px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hamburger" onclick="bugsocute()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+  <div class="topen">
+    <a href="#">点击我试试</a>
+  </div>
+  
+  <br>
+  
+  <div class="box">
+    <h1>歡迎來到隨機API</h1>
+    <br />
+    <img src="" class="image" id="image">
+    <br>
+    <br />
+    <button class="bt" tabindex="0" onclick="image()">隨機按鈕</button>
+    </div>
+  
+  <script>
+    function bugsocute() {
+      const topen = document.querySelector('.topen');
+      topen.classList.toggle("bud2");
+    }
+    
+    function image() {
+      const imageElement = document.getElementById("image");
+      
+      // 显示加载状态
+      imageElement.style.display = "inline-block";
+      imageElement.alt = "載入中...";
+      
+      fetch("https://api.waifu.pics/sfw/waifu")
+        .then(res => res.json())
+        .then(data => {
+          imageElement.src = data.url;
+          imageElement.alt = "隨機圖片";
+        })
+        .catch(error => {
+          console.error('獲取圖片失敗:', error);
+          imageElement.alt = "圖片載入失敗";
+        });
+    }
+  </script>
+</body>
+
+</html>
